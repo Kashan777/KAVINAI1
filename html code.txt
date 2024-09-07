@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>KavinAI</title>
+  <style>
+    /* General button styling */
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px; /* Add more spacing between buttons */
+      margin-top: 30px; /* Add margin to separate buttons from form */
+      align-items: center; /* Center the buttons horizontally */
+    }
+
+    .button-container button {
+      padding: 15px 30px; /* Add padding for a bigger clickable area */
+      font-size: 18px; /* Larger font size for readability */
+      border: none; /* Remove default borders */
+      border-radius: 50px; /* Rounded button shape */
+      cursor: pointer;
+      transition: all 0.3s ease; /* Smooth transition for hover effects */
+      font-family: 'Arial', sans-serif; /* Use a modern sans-serif font */
+      text-transform: uppercase; /* Make text uppercase for a futuristic feel */
+      letter-spacing: 2px; /* Add spacing between letters */
+      color: #fff; /* Text color white */
+    }
+
+    /* Voice Command Button (modern green gradient) */
+    .voice-command {
+      background: linear-gradient(145deg, #00ff87, #00d4ff); /* Greenish gradient */
+      box-shadow: 0 8px 15px rgba(0, 255, 135, 0.3); /* Add a subtle shadow */
+    }
+
+    /* Stop Command Button (modern red gradient) */
+    .stop-command {
+      background: linear-gradient(145deg, #ff416c, #ff4b2b); /* Redish gradient */
+      box-shadow: 0 8px 15px rgba(255, 65, 108, 0.3); /* Add a subtle shadow */
+    }
+
+    /* Hover effect for buttons */
+    .button-container button:hover {
+      transform: scale(1.05); /* Slight zoom on hover */
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+    }
+
+    /* Active state (click effect) */
+    .button-container button:active {
+      transform: scale(0.98); /* Slightly shrink on click */
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* Less shadow on click */
+    }
+
+    /* Add some spacing and font styling to the form */
+    form {
+      margin-top: 50px;
+      text-align: center;
+    }
+
+    input[name="prompt"] {
+      padding: 10px;
+      font-size: 18px;
+      border: 2px solid #ddd;
+      border-radius: 30px;
+      width: 80%;
+      max-width: 500px;
+      margin-bottom: 20px;
+    }
+
+    button[type="submit"] {
+      padding: 10px 30px;
+      font-size: 16px;
+      background-color: #333;
+      color: #fff;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #555;
+    }
+
+  </style>
+</head>
+<body>
+  <main>
+    <h1>KavinAI</h1>
+    <h2>Developed by a 16-year-old boy.</h2>
+    <form>
+      <div class="image-picker">
+        <label class="image-choice">
+          <input type="radio" checked name="chosen-image" value="/baked_goods_1.jpg">
+        </label>
+        <label class="image-choice">
+          <input type="radio" name="chosen-image" value="/baked_goods_2.jpg">
+        </label>
+        <label class="image-choice">
+          <input type="radio" name="chosen-image" value="/baked_goods_3.jpg">
+        </label>
+      </div>
+
+      <div class="prompt-box">
+        <label>
+          <input name="prompt" placeholder="Enter instructions here" type="text" value="Who was the first ever man to walk on the moon?">
+        </label>
+        <button type="submit">Go</button>
+      </div>
+    </form>
+
+    <!-- Voice Command and Stop Buttons Container -->
+    <div class="button-container">
+      <!-- Voice Command Button -->
+      <button type="button" class="voice-command">🎤 Start Voice Command</button>
+      
+      <!-- Stop Speaking Button -->
+      <button type="button" class="stop-command">🛑 Stop Speaking</button>
+    </div>
+
+    <p class="output">(Results will appear here)</p>
+  </main>
+  <label for="voice-select">Choose a voice:</label>
+  <select id="voice-select">
+    <option value="">Select a voice</option>
+  </select>
+  
+  <script type="module" src="/main.js"></script>
+  <script type="module">
+  
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+  </script>
+</body>
+</html>
